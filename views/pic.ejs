@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Pictures</title>
+    <link href="/styles.css" rel="stylesheet">
+</head>
+<body class="bg-[#6495ED] h-[100vh] flex justify-center items-center p-9">
+    <div class="text-center">
+        <h1 class="text-4xl mb-4">Here are your pictures</h1>
+        <% if (urls.length > 0) { %>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+                <% urls.forEach(function(image) { %>
+                    <div class="flex justify-center items-center p-2">
+                        <img src="<%= image.urls.small %>" alt="<%= image.alt_description || 'Image' %>" class="w-full h-[250px] object-cover border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p class="text-2xl text-black m-10">No picture found</p>
+        <% } %>
+    </div>
+</body>
+</html>
